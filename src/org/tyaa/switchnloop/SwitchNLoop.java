@@ -40,10 +40,29 @@ public class SwitchNLoop {
             }
         }*/
         
+        Scanner sc = new Scanner(System.in);
+        do {
         //1. Получаем число
         System.out.println("Введите целое положительное число и нажмите ВВОД:");
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+        
+        int number = 0;
+        
+        String numberString = sc.nextLine();
+        
+        try{
+            number = Integer.valueOf(numberString);
+        }catch(Exception ex) {
+            if (numberString.equals("exit")){
+                break;
+            }
+            
+            System.out.println("Введено не число!");
+            continue;
+        }
+        
+        if (number < 0) {
+            System.out.println("Неверное число!");
+    } else {
         
         //2. Проверяем введенное число
         int number10 = number % 10;
@@ -89,15 +108,22 @@ public class SwitchNLoop {
                 }
                 case 9:{
                     System.out.println("ворон");
+                    break;
                 }
                 default:{
                 
                     System.out.println("Неверное число!");
                 }
             }
+        }    
         }
-        
-        
-    }
-    
+    } while (true);
+} 
 }
+    
+        
+    
+    
+    
+
+
